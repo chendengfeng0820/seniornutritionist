@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springboot.mapper.UserMapper" >
+
+	<!--根据number查询用户-->
+	<select id="findByNumber" resultType="com.springboot.pojo.User">
+		select * from user where number =#{number}
+	</select>
+
+	<!--查询所有用户-->
+	<select id="findAll" resultType="com.springboot.pojo.User">
+		select * from user
+	</select>
+
+	<!--增加用户-->
+	<insert id="saveUser" keyProperty="number"  useGeneratedKeys="true" keyColumn="number">
+		insert into user (name,age,height,weight,pressure,sugar,bmi) values (#{name},#{age},#{height},#{weight},#{pressure},#{sugar},#{bmi})
+	</insert>
+
+	<!--删除用户-->
+	<delete id="deleteUser" >
+		delete from user where number=#{number}
+	</delete>
+
+	<!--修改用户-->
+	<update id="updateUser">
+		update user set name=#{name},age=#{age},height=#{height},weight=#{weight},pressure=#{pressure},sugar=#{sugar},bmi=#{bmi}
+		where number=#{number}
+	</update>
+</mapper>
