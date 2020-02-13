@@ -39,7 +39,7 @@ public class AutoController {
 			String[] a = new String[]{"type", "proportion", "heft"};
 			System.out.println(jedis.hmget(prognumber, a));
 		}else {
-			System.out.println("没有这个帐号");
+			System.out.println("没有此帐号");
 		}
 		return "t";
 	}
