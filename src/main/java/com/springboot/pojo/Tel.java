@@ -10,7 +10,17 @@ public class Tel {
 
 	private String code;
 
-	public String getTelenumber() {
+	private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getTelenumber() {
 		return telenumber;
 	}
 
@@ -26,11 +36,12 @@ public class Tel {
 		this.code = code;
 	}
 
-	@Override
-	public String toString() {
-		return "Tel{" +
-				"telenumber='" + telenumber + '\'' +
-				", code='" + code + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "Tel{" +
+                "telenumber='" + telenumber + '\'' +
+                ", code='" + code + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

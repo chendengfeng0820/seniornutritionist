@@ -26,20 +26,25 @@ public class AutoController {
 	@RequestMapping("/auto")
 	public String meal(@RequestBody JSONObject jsonObject){
 		User user= JSON.parseObject(jsonObject.toString(),User.class);
+		Jedis jedis = new Jedis();
 
 		Integer number=user.getNumber();
-		User user1=userMapper.findByNumber(number);
-		if(user1!=null) {
-			Float BMI = user1.getBmi();
-			Jedis jedis = new Jedis();
-			jedis.select(2);
-			String prognumber = jedis.get(BMI.toString());
-			System.out.println("redis中BMI对应的prognumber:" + prognumber);
-			jedis.select(3);
-			String[] a = new String[]{"type", "proportion", "heft"};
-			System.out.println(jedis.hmget(prognumber, a));
+		String number1=jedis.get(number.toString());
+		if(number1==null) {
+			User user1 = userMapper.findByNumber(number);
+			if (user1 != null) {
+				Float BMI = user1.getBmi();
+				jedis.select(2);
+				String prognumber = jedis.get(BMI.toString());
+				System.out.println("redis中BMI对应的prognumber:" + prognumber);
+				jedis.select(3);
+				String[] a = new String[]{"type", "proportion", "heft"};
+				System.out.println(jedis.hmget(prognumber, a));
+			} else {
+				System.out.println("没有此帐号");
+			}
 		}else {
-			System.out.println("没有此帐号");
+			return number1;
 		}
 		return "t";
 	}
