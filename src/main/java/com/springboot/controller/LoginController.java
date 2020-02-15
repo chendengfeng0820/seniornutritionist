@@ -22,10 +22,22 @@ public class LoginController {
 	public String login(@RequestBody JSONObject jsonObject){
 		Tel tel= JSON.parseObject(jsonObject.toString(),Tel.class);
 		Jedis jedis=new Jedis();
+		//redis(15) 存手机号密码
+		jedis.select(15);
 		String telenumber=tel.getTelenumber();
 		String password=tel.getPassword();
-		jedis.get(telenumber)
-		return "t";
+		if(jedis.exists(telenumber)){
+//			System.out.println("存在此帐号");
+//			String password1=jedis.get(telenumber);
+//			System.out.println(password1);
+			if(jedis.get(telenumber).equals(password)){
+				return "登录成功";
+			}else {
+				return "对不起，密码不正确";
+			}
+		}else {
+			return "没有此帐号";
+		}
 	}
 
 

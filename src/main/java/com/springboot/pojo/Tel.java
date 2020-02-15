@@ -6,6 +6,16 @@ package com.springboot.pojo;
  **/
 public class Tel {
 
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	private String telenumber;
 
 	private String code;
@@ -36,12 +46,13 @@ public class Tel {
 		this.code = code;
 	}
 
-    @Override
-    public String toString() {
-        return "Tel{" +
-                "telenumber='" + telenumber + '\'' +
-                ", code='" + code + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Tel{" +
+				"email='" + email + '\'' +
+				", telenumber='" + telenumber + '\'' +
+				", code='" + code + '\'' +
+				", password='" + password + '\'' +
+				'}';
+	}
 }
