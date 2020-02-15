@@ -1,6 +1,7 @@
 package com.springboot.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author: cdf
@@ -16,8 +17,53 @@ public class User implements Serializable {
 	private float sugar;
 	private float bmi;
 	private String name;
+    private String resume;
+    private String nikename;
+    private String head;
+    private char sex;
+    private Date birthday;
 
-	public int getNumber() {
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
+    public String getNikename() {
+        return nikename;
+    }
+
+    public void setNikename(String nikename) {
+        this.nikename = nikename;
+    }
+
+    public String getHead() {
+        return head;
+    }
+
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getNumber() {
 		return number;
 	}
 
@@ -81,17 +127,22 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"number=" + number +
-				", age=" + age +
-				", height=" + height +
-				", weight=" + weight +
-				", pressure=" + pressure +
-				", sugar=" + sugar +
-				", bmi=" + bmi +
-				", name='" + name + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "number=" + number +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", pressure=" + pressure +
+                ", sugar=" + sugar +
+                ", bmi=" + bmi +
+                ", name='" + name + '\'' +
+                ", resume='" + resume + '\'' +
+                ", nikename='" + nikename + '\'' +
+                ", head='" + head + '\'' +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                '}';
+    }
 }

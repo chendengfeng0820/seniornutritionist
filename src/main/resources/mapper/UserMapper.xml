@@ -29,4 +29,9 @@
 		update user set name=#{name},age=#{age},height=#{height},weight=#{weight},pressure=#{pressure},sugar=#{sugar},bmi=#{bmi}
 		where number=#{number}
 	</update>
+
+	<!--查找用户的详细信息-->
+	<select id="information" resultType="com.springboot.pojo.User">
+		select * from info where number=#{number}
+	</select>
 </mapper>

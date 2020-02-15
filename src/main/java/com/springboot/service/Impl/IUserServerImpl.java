@@ -42,4 +42,9 @@ public class IUserServerImpl implements IUserServer {
 	public List<User> findAll() {
 		return userMapper.findAll();
 	}
+
+	@Override
+	public User information(Integer number) {
+		return userMapper.information(number);
+	}
 }

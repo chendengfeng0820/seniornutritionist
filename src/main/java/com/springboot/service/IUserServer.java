@@ -42,5 +42,8 @@ public interface IUserServer {
 	 List<User> findAll ();
 
 
-
+	/**
+	 * 显示用户详细信息
+	 */
+	User information(Integer number);
 }
