@@ -24,14 +24,11 @@ public class AddFriendController {
 	public String addFriend(@RequestBody JSONObject jsonObject){
 		User user= JSON.parseObject(jsonObject.toString(),User.class);
 
-		Integer number=user.getNumber();
-		String number1=number.toString();
+		String number=String.valueOf(user.getNumber());
 		Jedis jedis=new Jedis();
-
-		jedis.select(1);
-
-		if(jedis.exists(number1)){
-			User user1=userMapper.findByNumber(number);
+		jedis.select(15);
+		if(jedis.exists(number)){
+			User user1=userMapper.findByNumber(Integer.valueOf(number));
 			return JSON.toJSONString(user1);
 		}else {
 
