@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * @author: cdf
- * @create: 2020-02-12 23:40
+ * @create: 2020-01-12 23:40
  **/
 public class User implements Serializable {
 

@@ -2,7 +2,7 @@ package com.springboot.pojo;
 
 /**
  * @author: cdf
- * @create: 2020-02-13 20:42
+ * @create: 2020-01-13 20:42
  **/
 public class Email {
 

@@ -16,7 +16,7 @@ import static com.springboot.password.ess.generateInviteCode;
 
 /**
  * @author: cdf
- * @create: 2020-02-16 00:29
+ * @create: 2020-01-16 00:29
  **/
 @RestController
 public class RegisterController {
